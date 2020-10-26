@@ -7,54 +7,76 @@ import random
 class Bot:
     def __init__(self):
         self.driver = webdriver.Firefox(
-            executable_path="/home/davi/Projetos/Personal/Auto_send_wpp_BOT/src/assets/geckodriver")
+            executable_path='/home/davi/Projetos/Personal/Auto_send_wpp_BOT/src/assets/geckodriver'
+        )
 
-    def __openArchive(self):
+    def __openArchive(self, archivePath='/home/davi/Projetos/Personal/Auto_send_wpp_BOT/src/texts/sas.txt', splitText=True):
         try:
             file = open(
-                '/home/davi/Projetos/Personal/Auto_send_wpp_BOT/src/texts/sas.txt', 'r')
+                archivePath, 'r'
+            )
 
             text = file.read()
-            text = text.split(" ")
+
+            if splitText:
+                text = text.split(' ')
 
         except Exception:
-            print("Error ao abrir arquivo!")
+            print('Error ao abrir arquivo!')
 
         file.close()
 
         return text
 
-    def start(self, interval):
+    def start(self,
+              interval=100,
+              archivePath='/home/davi/Projetos/Personal/Auto_send_wpp_BOT/src/texts/sas.txt',
+              isArchive=False,
+              passedText='Auto_Send_BOT',
+              splitText=True,
+              repeatTimes=100):
+
         driver = self.driver
-        driver.get("http://web.whatsapp.com")
+        driver.get('http://web.whatsapp.com')
 
-        text = self.__openArchive()
+        if isArchive:
+            text = self.__openArchive(archivePath, splitText)
+        else:
+            if splitText:
+                text = passedText.split(' ')
+            else:
+                text = passedText
 
-        print("Aguardando a conexão do whatsapp web...")
-        input("Assim que conectado pressione ENTER")
+        print('Antes de iniciar a execução do bot, abra a conversa que você deseja mandar as mensagens e depois precione \'Enter\'')
+        print('Aguardando a conexão do whatsapp web...')
+        input('Assim que conectado pressione ENTER para iniciar a execução do chatBot')
 
         chat_box = driver.find_element_by_xpath(
-            "/html/body/div[1]/div/div/div[4]/div/footer/div[1]/div[2]/div/div[2]")
+            '/html/body/div[1]/div/div/div[4]/div/footer/div[1]/div[2]/div/div[2]')
         chat_box.click()
         chat_box.clear()
 
         try:
-            for word in text:
-                if "-" in word:
-                    word = word.strip("-")
+            if splitText:
+                for word in text:
+                    if '-' in word:
+                        word = word.strip('-')
 
-                if "," in word:
-                    word = word.rstrip(",")
+                    if ',' in word:
+                        word = word.rstrip(',')
 
-                time.sleep(interval/1000)
+                    time.sleep(interval/1000)
 
-                chat_box.send_keys("BOT" + "\n")
+                    chat_box.send_keys(word + '\n')
+            else:
+                for i in range(repeatTimes):
+                    time.sleep(interval/1000)
 
-                # chat_box.send_keys(word + "\n")
+                    chat_box.send_keys(text + '\n')
 
         except KeyboardInterrupt:
-            print("\nServiço parado!")
-            print("\nObrigado por usar o whatsappWebBot!")
+            print('\nServiço parado!')
+            print('\nObrigado por usar o whatsapp auto_send WebBot!')
 
 
 bot = Bot()

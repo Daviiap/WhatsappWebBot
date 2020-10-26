@@ -30,10 +30,10 @@ class Bot:
 
     def start(self,
               interval=100,
-              archivePath='/home/davi/Projetos/Personal/Auto_send_wpp_BOT/src/texts/sas.txt',
+              archivePath='',
               isArchive=False,
               passedText='Auto_Send_BOT',
-              splitText=True,
+              splitText=False,
               repeatTimes=100):
 
         driver = self.driver

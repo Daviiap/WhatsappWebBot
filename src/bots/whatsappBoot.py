@@ -3,13 +3,16 @@ from selenium.webdriver.common.keys import Keys
 import time
 import random
 
+
 class Bot:
     def __init__(self):
-        self.driver = webdriver.Firefox(executable_path="/home/davi/Projetos/Auto_send_wpp_BOT/src/assets/geckodriver")
+        self.driver = webdriver.Firefox(
+            executable_path="/home/davi/Projetos/Personal/Auto_send_wpp_BOT/src/assets/geckodriver")
 
     def __openArchive(self):
         try:
-            file = open('/home/davi/Projetos/Auto_send_wpp_BOT/src/texts/sas.txt', 'r')
+            file = open(
+                '/home/davi/Projetos/Personal/Auto_send_wpp_BOT/src/texts/sas.txt', 'r')
 
             text = file.read()
             text = text.split(" ")
@@ -30,11 +33,12 @@ class Bot:
         print("Aguardando a conexão do whatsapp web...")
         input("Assim que conectado pressione ENTER")
 
-        chat_box = driver.find_element_by_xpath("/html/body/div[1]/div/div/div[4]/div/footer/div[1]/div[2]/div/div[2]")
+        chat_box = driver.find_element_by_xpath(
+            "/html/body/div[1]/div/div/div[4]/div/footer/div[1]/div[2]/div/div[2]")
         chat_box.click()
         chat_box.clear()
 
-        try: 
+        try:
             for word in text:
                 if "-" in word:
                     word = word.strip("-")
@@ -51,7 +55,6 @@ class Bot:
         except KeyboardInterrupt:
             print("\nServiço parado!")
             print("\nObrigado por usar o whatsappWebBot!")
-
 
 
 bot = Bot()

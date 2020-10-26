@@ -169,3 +169,20 @@ JavaScript error: resource://gre/actors/BrowserElementParent.jsm, line 314: Type
 JavaScript error: resource://gre/modules/UrlClassifierListManager.jsm, line 691: TypeError: this.tablesData[table] is undefined
 JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
 1591224360929	Marionette	INFO	Stopped listening on port 43171
+1603727416637	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileGQiZGd"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1603727420519	Marionette	INFO	Listening on port 35819
+1603727420634	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/URIFixup.jsm, line 271: NS_ERROR_FAILURE: Should pass a non-null uri
+JavaScript warning: https://web.whatsapp.com/app.6633b6b495238dace76e.js, line 1: unreachable code after return statement
+JavaScript warning: https://web.whatsapp.com/app.6633b6b495238dace76e.js, line 1: unreachable code after return statement
+1603727459048	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilezFYjQI"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1603727462461	Marionette	INFO	Listening on port 41435
+1603727462578	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603727464540	Marionette	INFO	Stopped listening on port 35819
+JavaScript warning: https://web.whatsapp.com/app.6633b6b495238dace76e.js, line 1: unreachable code after return statement
+JavaScript warning: https://web.whatsapp.com/app.6633b6b495238dace76e.js, line 1: unreachable code after return statement
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.

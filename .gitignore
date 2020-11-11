@@ -1,3 +1,5 @@
 .idea
-/src/bots/__pycache__
+/src/bot/__pycache__
 /src/texts
+/src/geckodriver.log
+/src/assets/texts

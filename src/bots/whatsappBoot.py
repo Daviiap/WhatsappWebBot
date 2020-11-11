@@ -86,14 +86,3 @@ class Bot:
         except Exception:
             print('Não foi realizada a conexão do WhatsApp Web, tente novamente...')
             driver.close()
-
-
-bot = Bot('/home/davi/Projetos/Personal/Auto_send_wpp_BOT/src/assets/geckodriver')
-
-try:
-    bot.start(interval=100,
-              archivePath='/home/davi/Projetos/Personal/Auto_send_wpp_BOT/src/texts/sas.txt',
-              splitText=True)
-except KeyboardInterrupt:
-    print('\nServiço parado!')
-    print('\nObrigado por usar o whatsapp auto_send WebBot!')

@@ -1,18 +1,20 @@
+import os
 from bot import whatsappBot
 from functions import functions
 
-diretorio = '/home/davi/Projetos/Personal'
 
 # diretorio = input('Digite o diretório onde está a pasta principal do Bot: ')
 
-bot = whatsappBot.Bot(diretorio + '/Auto_send_wpp_BOT/src/assets/geckodriver')
+bot = whatsappBot.Bot(os.getcwd() + '/assets/geckodriver')
 
-interval = functions.getInterval()
 
 archivePath = functions.getText()
 passedText = functions.getArchive()
 
 splitText = False
+
+interval = functions.getInterval()
+
 repeatTimes = 0
 
 try:
